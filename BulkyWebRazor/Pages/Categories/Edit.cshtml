@@ -1,0 +1,42 @@
+﻿@page
+@model BulkyWebRazor.Pages.Categories.EditModel
+
+
+<form method="post">
+    <input asp-for="CategoryObj.Id" hidden/>
+    <div class="border p-3 mt-4">
+        <div class="row">
+            <h2 class="text-primary text-black-50 p-2">Edit Category</h2>
+            <hr />
+        </div>
+
+        <div asp-validation-summary="All"></div>
+        <div class="row">
+            <div class="col-12">
+                <label asp-for="CategoryObj.Name" class="mb-1"></label>
+                <input asp-for="CategoryObj.Name" type="text" class="form-control p-1" />
+                <span asp-validation-for="CategoryObj.Name" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <label asp-for="CategoryObj.DisplayOrder" class="mb-1"></label>
+                <input asp-for="CategoryObj.DisplayOrder" type="text" class="form-control p-1" />
+                <span asp-validation-for="CategoryObj.DisplayOrder" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-6 col-md-3 p-2">
+                <button type="submit" class="btn btn-primary bg-black form-control">Update</button>
+            </div>
+
+            <div class="col-6 col-md-3 p-2">
+                <a asp-page="/Categories/Index" class="btn btn-outline-secondary form-control">Back To List</a>
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial"></partial>
+}

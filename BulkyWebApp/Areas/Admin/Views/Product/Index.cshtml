@@ -1,0 +1,35 @@
+﻿@model List<Product>; //here we receive the object from controller. model must be in lower case.
+
+<div class="card shadow mt-4">
+    <div class="card-header">
+        <div class="row text-center">
+            <h2 class="text-primary text-black-50 p-2">Product List</h2>
+        </div>
+    </div>
+    <div class="card-body ">
+        <div class="row">
+            <div class="px-2 pb-3 text-end">
+                <a asp-controller="Product" asp-action="Upsert" class="btn btn-primary bg-black">
+                    <i class="bi bi-plus-circle"></i> Create Product
+                </a>
+            </div>
+        </div>
+        <table id="tableData" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>ISBN</th>
+                    <th>Author</th>
+                    
+                    <th>Price</th>
+                    <th>Category</th>
+                    <th> </th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+
+@section Scripts{
+    <script  src="~/js/product.js"></script>
+} 

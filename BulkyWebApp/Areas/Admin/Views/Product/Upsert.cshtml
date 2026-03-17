@@ -1,0 +1,92 @@
+﻿@model ProductVM;
+
+
+<div class="card shadow">
+    <div class="card-header">
+        <div class="row text-center">
+            <h2 class="text-primary text-black-50 p-2">@(Model.product.Id == 0 ? "Create":"Update" ) Product</h2>
+        </div>
+    </div>
+    <div class="card-body">
+        <form method="post" enctype="multipart/form-data">
+            <div class="row">
+                <div class="col-10">
+                    <div class="mt-1">
+                        <input hidden asp-for="product.Id" type="number" />
+                        <input hidden asp-for="product.ImageUrl" type="text" />
+                        <div asp-validation-summary="All"></div>
+
+                        <div class="col-12 form-floating py-1">
+                            <input asp-for="product.Title" type="text" class="form-control p-1" placeholder="Product Name" />
+                            <label asp-for="product.Title"></label>
+                            <span asp-validation-for="product.Title" class="text-danger "></span>
+                        </div>
+                        <div class="col-12 form-floating py-1">
+                            <input asp-for="product.Description" type="text" class="form-control p-1" placeholder="Product Description" />
+                            <label asp-for="product.Description"></label>
+                            <span asp-validation-for="product.Description" class="text-danger"></span>
+                        </div>
+                        <div class="col-12 form-floating py-1">
+                            <input asp-for="product.ISBN" type="text" class="form-control p-1" placeholder="DisplayOrder" />
+                            <label asp-for="product.ISBN"></label>
+                            <span asp-validation-for="product.ISBN" class="text-danger"></span>
+                        </div>
+                        <div class="col-12 form-floating py-1">
+                            <input asp-for="product.Author" type="text" class="form-control p-1" placeholder="DisplayOrder" />
+                            <label asp-for="product.Author"></label>
+                            <span asp-validation-for="product.Author" class="text-danger"></span>
+                        </div>
+                        <div class="col-12 form-floating py-1">
+                            <input asp-for="product.ListPrice" type="number" class="form-control p-1" placeholder="DisplayOrder" />
+                            <label asp-for="product.ListPrice"></label>
+                            <span asp-validation-for="product.ListPrice" class="text-danger"></span>
+                        </div>
+                        <div class="col-12 form-floating py-1">
+                            <input asp-for="product.Price" type="number" class="form-control p-1" placeholder="DisplayOrder" />
+                            <label asp-for="product.Price"></label>
+                            <span asp-validation-for="product.Price" class="text-danger"></span>
+                        </div>
+                        <div class="col-12 form-floating py-1">
+                            <input asp-for="product.Price50" type="number" class="form-control p-1" placeholder="DisplayOrder" />
+                            <label asp-for="product.Price50"></label>
+                            <span asp-validation-for="product.Price50" class="text-danger"></span>
+                        </div>
+                        <div class="col-12 form-floating py-1">
+                            <input asp-for="product.Price100" type="number" class="form-control p-1" placeholder="DisplayOrder" />
+                            <label asp-for="product.Price100"></label>
+                            <span asp-validation-for="product.Price100" class="text-danger"></span>
+                        </div>
+                        <div class="col-12 form-floating py-1">
+                            <input asp-for="product.ImageUrl" type="file" name="file" class="form-control" />
+                            <label asp-for="product.ImageUrl"></label>
+                        </div>
+                        <div class="col-12 form-floating py-1">
+                            <select asp-for="product.CategoryId" asp-items="@Model.CategoryList" class="form-select p-1" placeholder="DisplayOrder">
+                                <option disabled selected>--Select Category--</option>
+                            </select>
+                            <label asp-for="product.CategoryId"></label>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-6 col-md-3 p-2">
+                                <button type="submit" class="btn btn-primary bg-black form-control">@(Model.product.Id == 0 ? "Create" : "Update")</button>
+                            </div>
+
+                            <div class="col-6 col-md-3 p-2">
+                                <a asp-controller="Category" asp-action="Index" class="btn btn-outline-secondary form-control">Back To List</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <img class="w-100 m-2" src="@Model.product.ImageUrl"/>
+                </div>
+            </div>
+           
+        </form>       
+    </div>
+</div>
+    
+
+    @section Scripts{
+        <partial name="_ValidationScriptsPartial" />
+    }

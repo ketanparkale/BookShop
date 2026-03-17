@@ -1,0 +1,64 @@
+﻿@model IEnumerable<Product> 
+
+    <div class="row pb-3">
+        @foreach(var product in Model){
+            <div class="col-lg-3 col-sm-6">
+                <div class="row p-2">
+                    <div class="col-12">
+                        <div class="card border-0 border-top shadow p-2 border-5 rounded">
+                            <img src="@product.ImageUrl" class="" style="min-height:240px"/>
+                            <div class="card-body">
+                                <div class="pl-1">
+                                    <p class="card-title h5 text-dark opacity-75 text-uppercase text-center">@product.Title</p>
+                                <p class="card-title text-warning text-center ">by <span class="h6">@product.Author</span></p>
+                                </div>
+                                <div class="pl-1">
+                                    <p class="card-title opacity-75 text-center mb-0">List Price: 
+                                        <span class="text-decoration-line-through">
+                                            @product.ListPrice.ToString("c")
+                                        </span>
+                                    </p>
+                                </div>
+                                <div class="pl-1">
+                                    <p class="card-title opacity-75 text-center">
+                                        As low as: 
+                                        <span>@product.Price100.ToString("c")</span>
+                                    </p>
+                                </div>
+                                
+                            </div>
+                            <div class="">
+                            @* <a onclick="ShowDetails"  asp-route-productId="@product.Id" class="btn btn-primary bg-dark bg-opacity-75 border-0 form-control">
+                                    Details
+                               </a>*@
+                            </div> 
+                            <button onclick="ShowDetails(@product.Id)" class="btn btn-primary bg-dark border-0 form-control">
+                                Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    }
+        <div class="modal fade" id="detailsPopUp" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content shadow">
+
+                    <div class="modal-header">
+                        <h5 class="modal-title">Details</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+
+                    <div id="modalContent" class="modal-body">
+                        <div class="row">
+                            <div class="col-4">@ViewBag.details</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+@section Scripts{
+    <script src="~/js/product.js"></script>
+}

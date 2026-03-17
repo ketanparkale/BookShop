@@ -1,0 +1,33 @@
+﻿@model Category;
+
+<div class="card">
+    <div class="card-header">
+        <div class="row text-center">
+            <h2 class="text-primary text-black-50 p-2">Delete Category</h2>
+        </div>
+    </div>
+    <div class="card-body">
+        <form method="post">
+            <div class="p-3 mt-2">
+                <input type="hidden" asp-for="Id" />
+                <div class="col-12 form-floating py-1 mb-2">
+                    <input disabled asp-for="Name" type="text" class="form-control" placeholder="Category Name"/>
+                    <label asp-for="Name" class="mb-1"></label>
+                </div>
+                <div class="col-12 form-floating py-1 mb-2">
+                    <input disabled asp-for="DisplayOrder" type="text" class="form-control" placeholder="DisplayOrder"/>
+                    <label asp-for="DisplayOrder" class="mb-1"></label>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-6 col-md-3 p-2">
+                        <button type="submit" class="btn btn-danger form-control">Delete</button>
+                    </div>
+
+                    <div class="col-6 col-md-3 p-2">
+                        <a asp-controller="Category" asp-action="Index" class="btn btn-outline-secondary form-control">Back To List</a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

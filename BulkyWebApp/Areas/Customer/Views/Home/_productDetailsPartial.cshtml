@@ -1,0 +1,44 @@
+﻿@model Product
+<div class="row">
+    <div class="col-lg-4 p-3">
+        <img src="@Model.ImageUrl" class="w-100 rounded-1" />
+    </div>
+    <div class="col-lg-6 mx-4">
+        <div class="border-0 ">
+            <span class="bg-warning ml-0 px-1 rounded text-capitalize  shadow">@Model.Category.Name</span>
+        </div>
+        <div class="row">
+            <h5 class="my-2"><span> Title : </span>@Model.Title</h5>
+        </div>
+        <div class="row">
+            <p class="my-2"><span class="h5"> ISBN : </span>@Model.ISBN</p>
+        </div>
+        <p><strong>Author: </strong> @Model.Author</p>
+        <p><strong>ListPrice: </strong> <span class="text-decoration-line-through text-muted opacity-70">@Model.ListPrice.ToString("c")</span></p>
+        <div class="mb-3" >
+            <table class="w-100">
+                <thead class="my-2">
+                    <tr class="text-muted text-opacity-75">
+                        <td>Quantity</td>
+                        <td>1-50</td>
+                        <td>50-100</td>
+                        <td>100+</td>
+                    </tr>
+                </thead>
+                <tbody class="border-top my-2">
+                    <tr class="text-danger ">
+                        <td>Price</td>
+                        <td>@Model.Price.ToString("c")</td>
+                        <td>@Model.Price50.ToString("c")</td>
+                        <td>@Model.Price100.ToString("c")</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+        <div>
+            <h5>Description</h5>
+            <p class="p-1 shadow border-1">@Model.Description</p>
+        </div>
+    </div>
+</div>
